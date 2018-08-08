@@ -1,0 +1,125 @@
+html, body{
+    width: 100%;
+}
+
+body {
+    margin:  0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.gradiented {
+    background: #00e591;
+    background: -moz-linear-gradient(top, #00e591 0%, #2fefbc 100%);
+    background: -webkit-linear-gradient(top, #00e591 0%,#2fefbc 100%);
+    background: linear-gradient(to bottom, #00e591 0%,#2fefbc 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e591', endColorstr='#2fefbc',GradientType=0 );
+}
+
+header.primary {
+    padding:  15px;
+    color: #fff;
+    font-size: 20px;
+    font-weight:  bold;
+}
+
+.container{
+    width: 830px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.grid-container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 3fr 5fr;
+    grid-template-rows: 1fr;
+    grid-gap: 15px 15px;
+    grid-template-areas: ". .";
+  }
+
+.container header {
+    color: #fff;
+    text-transform:  uppercase;
+    padding: 10px;
+}
+
+.grid-container>div {
+    border: 1px solid #d6d6d6;
+}
+  
+div#items-list ul {
+    list-style-type:  none;
+    padding: 0;
+}
+
+div#items-list ul li {
+    padding: 5px;
+    border-bottom: 1px solid  #d6d6d6;
+}
+
+div#items-list ul li:first-child {
+    border-top: 1px solid  #d6d6d6;
+}
+
+a.remove {
+    text-decoration: none;
+    color: red;
+    float: right;
+    display: none;
+}
+
+a.item {
+    text-decoration: none;
+    color: inherit;
+}
+
+.content {
+    padding: 10px;
+}
+
+label, input[type="text"], input[type="number"], textarea {
+    display: block;
+    width: 100%;
+}
+
+input[type="text"], input[type="number"], textarea{
+    margin-bottom: 10px;
+}
+
+input[type="checkbox"]:checked+* {
+    text-decoration: line-through;
+}
+
+input[type="checkbox"]:checked~a.remove{
+    display: initial;
+}
+
+div#items-list input[type="text"] {
+    width: auto;
+    display: initial;
+    border: 0;
+    outline: 0;
+    margin-bottom: 0;
+}
+
+div#items-list input[type="text"]:focus+a.remove, li:hover a.remove{
+    display: initial;
+}
+
+a#add-item {
+    text-decoration:  none;
+    color: inherit;
+    font: 400 13.3333px Arial;
+    margin-left: 25px;
+}
+
+@media  (max-width:830px){
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "." ".";
+      }    
+      .container{
+          width: calc(100% - 30px);
+      }  
+}

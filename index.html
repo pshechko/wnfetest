@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Work Nest Test FE</title>
+  <meta name="description" content="Work Nest Test FE">
+  <meta name="author" content="SitePoint">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="assets/css/styles.css?v=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app-header">
+      <header class="gradiented primary">
+        {{ title }}
+      </header>
+    </div>
+
+    <br><br><br>
+
+    <div id="app">
+        <div class="container">
+            <div class="grid-container">
+              <div id="items-list">
+                <header class="gradiented">
+                  Add your items here
+                </header>
+                <ul>
+                  <li v-for="(item, index) in items">
+                    <input type="checkbox" v-model="item.checked">
+                    <input 
+                      type="text" 
+                      class="item" 
+                      v-on:click="showDetails(index, $event)" 
+                      v-model="item.name">
+                    <a href="#" class="remove" v-on:click="removeItem(index, $event)">X</a>
+                  </li>
+                  <li><a href="#" id="add-item" v-on:click="addItem($event)">Add Item</a></li>
+                </ul>
+              </div>
+              <div id="item-description" v-if="selectedIndex !== null">
+                  <header class="gradiented">
+                      Add your items here
+                  </header>
+                  <div class="content">
+                    <label for="#price">Price</label>
+                    <input 
+                      type="number" 
+                      id="price" 
+                      v-model.number="price" 
+                      v-on:change="priceChange"/>
+                    <label for="#quantity">Quantity</label>
+                    <input 
+                      type="number" 
+                      id="quantity" 
+                      v-model.number="quantity" 
+                      v-on:change="quantityChange"/>
+                    <label for="#description">Description</label>
+                    <textarea type="text" id="description" v-model="description" v-on:change="descriptionChange"></textarea>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
